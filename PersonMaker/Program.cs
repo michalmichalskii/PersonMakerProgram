@@ -81,7 +81,7 @@ namespace PersonMaker
             {
                 if (person.Pesel == pesele[j])
                 {
-                    Console.WriteLine("Osoba o danym peselu już istniała, ale została nadpisana!");
+                    Console.WriteLine("Osoba o danym peselu już istniała, ale została nadpisana!!!");
                     people.RemoveAt(j);
                 }
             }
