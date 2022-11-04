@@ -9,12 +9,12 @@ namespace PersonMaker
     {
         static void Main(string[] args)
         {
-            BussinessLogic bl = new BussinessLogic();
-            bl.MainUI();
+            Logic logic = new Logic();
+            logic.MainUI();
         }
 
     }
-    public class BussinessLogic
+    public class Logic
     {
         private const string path = @"../../../../people.txt";
 
