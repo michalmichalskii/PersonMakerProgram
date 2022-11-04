@@ -124,8 +124,10 @@ namespace PersonMaker
         }
         public bool CheckCorrectPesel(string pesel)
         {
+            //length checker
             if (pesel.Length == 11)
             {
+                //checksum of last number
                 int summary = 0;
                 for (int i = 0; i < pesel.Length - 1; i++)
                 {
