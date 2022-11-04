@@ -18,6 +18,8 @@ namespace PersonMaker
     {
         private const string path = @"../../../../people.txt";
 
+
+
         public void MainUI()
         {
             List<Person> people = new List<Person>();
@@ -28,21 +30,30 @@ namespace PersonMaker
             {
                 Person person = new Person();
 
-                Console.WriteLine("Miasto:");
-                person.city = Console.ReadLine();
+                do
+                {
+                    Console.WriteLine("Podaj miasto:");
+                    person.City = Console.ReadLine(); 
+                } while (person.City == null);
 
 
-                Console.WriteLine("Podaj Imie:");
-                person.name = Console.ReadLine();
+                do
+                {
+                    Console.WriteLine("Podaj Imie:");
+                    person.Name = Console.ReadLine(); 
+                } while (person.Name == null);
 
-                Console.WriteLine("Podaj Nazwisko:");
-                person.lastName = Console.ReadLine();
+                do
+                {
+                    Console.WriteLine("Podaj Nazwisko:");
+                    person.SurrName = Console.ReadLine(); 
+                } while (person.SurrName == null);
 
                 do
                 {
                     Console.WriteLine("Podaj Pesel:");
                     person.Pesel = Console.ReadLine();
-                } while (person.Pesel==null);
+                } while (person.Pesel == null);
 
 
                 pesele.Add(person.Pesel);
@@ -69,7 +80,7 @@ namespace PersonMaker
                 {
                     if (p.Pesel != null)
                     {
-                        sw.WriteLine($"{p.city},{p.name},{p.lastName},{p.Pesel}");
+                        sw.WriteLine($"{p.City},{p.Name},{p.SurrName},{p.Pesel}");
                     }
 
                 }
@@ -96,9 +107,61 @@ namespace PersonMaker
     }
     public class Person
     {
-        public string city { get; set; }
-        public string name { get; set; }
-        public string lastName { get; set; }
+        private string city;
+
+        public string City
+        {
+            get { return city; }
+            set
+            {
+                if (value != "")
+                {
+                    city = value;
+                }
+                else
+                {
+                    ErrorCall("Pole musi zostac wypełnione!");
+                }
+            }
+        }
+
+
+        private string name;
+
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (value != "")
+                {
+                    name = value;
+                }
+                else
+                {
+                    ErrorCall("Pole musi zostac wypełnione!");
+                }
+            }
+        }
+
+        private string surrName;
+
+        public string SurrName
+        {
+            get { return surrName; }
+            set
+            {
+                if (value != "")
+                {
+                    surrName = value;
+                }
+                else
+                {
+                    ErrorCall("Pole musi zostac wypełnione!");
+                }
+            }
+        }
+
 
         private string pesel;
 
