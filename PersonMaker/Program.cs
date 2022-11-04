@@ -69,7 +69,7 @@ namespace PersonMaker
                 {
                     if (p.Pesel != null)
                     {
-                        sw.WriteLine($"{p.city},\n{p.name},{p.lastName},{p.Pesel}");
+                        sw.WriteLine($"{p.city},{p.name},{p.lastName},{p.Pesel}");
                     }
 
                 }
