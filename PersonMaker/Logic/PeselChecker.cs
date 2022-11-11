@@ -70,7 +70,21 @@ namespace PersonMaker
         }
 
         //TODO - make a DuplicatesChecking method properly
-       
+        public void DuplicatesChecking(string pesel, Person person)
+        {
+            List<Person> people = Logic.people;
+
+            int index = people.FindIndex(person => person.Pesel.ToString() == (pesel));
+
+            if (index != -1)
+            {
+
+                people[index] = person;
+                people.Remove(people[index]);
+            }
+
+
+        }
 
     }
 }

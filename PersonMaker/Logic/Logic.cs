@@ -41,24 +41,7 @@ namespace PersonMaker
             person.Pesel = pesel;
             return person.Pesel;
         }
-        public void DuplicatesChecking(string pesel)
-        {
-            List<Person> people = Logic.people;
-
-            //if(people.Any(x => x.Pesel.Contains(pesel)))
-            //{
-            //    people.Remove(ui.person);
-            //}
-
-            int index = people.FindIndex(x => x.Pesel.ToString() == (pesel));
-
-            if (index != -1)
-            {
-                people[index] = person;
-            }
-
-
-        }
+        
         public Person GetPerson()
         {
             return person;

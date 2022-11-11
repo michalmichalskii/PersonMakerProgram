@@ -69,7 +69,6 @@ namespace PersonMaker
             get { return pesel; }
             set
             {
-                Logic logic = new Logic();
                 PeselChecker pc = new PeselChecker();
                 bool isCorrectAmount = pc.AmountOfNumbersChecking(value);
                 bool isCorrectChecksum = pc.ChecksumOfLastNumberChecking(value);
@@ -79,7 +78,7 @@ namespace PersonMaker
                     pesel = value;
                 }
 
-                logic.DuplicatesChecking(value);
+                
             }
         }
         //public Person()
