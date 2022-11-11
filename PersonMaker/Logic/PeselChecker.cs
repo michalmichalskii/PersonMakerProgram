@@ -8,8 +8,6 @@ namespace PersonMaker
 {
     class PeselChecker
     {
-        readonly Logic logic = new Logic();
-
         public bool AmountOfNumbersChecking(string pesel)
         {
             return pesel.Length == 11;
@@ -20,7 +18,7 @@ namespace PersonMaker
             int summary = 0;
             for (int i = 0; i < pesel.Length - 1; i++)
             {
-                int importance = 0;
+                int importance;
                 if (i == 0 || i == 4 || i == 8)
                 {
                     importance = 1;
@@ -69,22 +67,7 @@ namespace PersonMaker
 
         }
 
-        //TODO - make a DuplicatesChecking method properly
-        public void DuplicatesChecking(string pesel, Person person)
-        {
-            List<Person> people = Logic.people;
 
-            int index = people.FindIndex(person => person.Pesel.ToString() == (pesel));
-
-            if (index != -1)
-            {
-
-                people[index] = person;
-                people.Remove(people[index]);
-            }
-
-
-        }
 
     }
 }

@@ -1,3 +1,1 @@
-pzn,andrzej,fikus,02262602930
-szczn,mateusz,sliwka,81100216357
-bial,roman,zbik,02070803628
+ewra,sgd,hdth,12345678910

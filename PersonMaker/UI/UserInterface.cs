@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersonMaker.Logic;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,9 +16,9 @@ namespace PersonMaker.UI
 
     class UserInterface
     {
-        readonly Logic logic = new Logic();
+        readonly AppLogic appLogic = new AppLogic();
         readonly SaveListToFile toFile = new SaveListToFile();
-
+        readonly ListModifier listModifier = new ListModifier();
 
         public void ErrorCall(string error)
         {
@@ -48,7 +49,7 @@ namespace PersonMaker.UI
                         
                         isCorrectKey = true;
                         Console.WriteLine();
-
+                        Console.Clear();
                         return true;
                         
                     case ConsoleKey.N:
@@ -61,8 +62,8 @@ namespace PersonMaker.UI
                     default:
                         Console.WriteLine();
                         ErrorCall("Podano niepoprawny przycisk");
-
-                        return false;
+                        break;
+                        
                 }
                 
             }
@@ -73,13 +74,12 @@ namespace PersonMaker.UI
             bool ending ;
             do
             {
-                PeselChecker pc = new PeselChecker();
                 Person person = new Person() ;
                 do
                 {
                     Console.WriteLine("Podaj miasto:");
                     string city = Console.ReadLine();
-                    person.City = logic.EnteringCity(city);
+                    person.City = appLogic.EnteringCity(city);
 
                     if (person.City == null)
                     {
@@ -94,7 +94,7 @@ namespace PersonMaker.UI
                     Console.WriteLine("Podaj imie:");
                     string name = Console.ReadLine();
 
-                    person.Name = logic.EnteringName(name);
+                    person.Name = appLogic.EnteringName(name);
 
                     if (person.Name == null)
                     {
@@ -108,7 +108,7 @@ namespace PersonMaker.UI
                     Console.WriteLine("Podaj nazwisko:");
                     string surrname = Console.ReadLine();
 
-                    person.SurrName = logic.EnteringSurrname(surrname);
+                    person.SurrName = appLogic.EnteringSurrname(surrname);
 
                     if (person.SurrName == null)
                     {
@@ -122,7 +122,7 @@ namespace PersonMaker.UI
                     Console.WriteLine("Podaj pesel:");
                     string pesel = Console.ReadLine();
 
-                    person.Pesel = logic.EnteringPesel(pesel);
+                    person.Pesel = appLogic.EnteringPesel(pesel);
 
                     if (person.Pesel == null)
                     {
@@ -131,20 +131,15 @@ namespace PersonMaker.UI
 
                 } while (person.Pesel == null);
 
-                pc.DuplicatesChecking(person.Pesel, person);
+                listModifier.DuplicatesInListChecking(person.Pesel/*, person*/);
 
-                logic.AddingToList(person);
+                listModifier.AddingToList(person);
 
                 ending = ProgramEnding();
                 
-            } while (ending == false);
+            } while (ending == true);
             
-            toFile.SavingToFile(Logic.people);
-            //foreach (var p in Logic.people)
-            //{
-            //    Console.WriteLine($"{p.City}, {p.Name}, {p.SurrName}, {p.Pesel}");
-            //}
-            //Console.ReadKey();
+            toFile.SavingToFile(AppLogic.people);
         }
     }
 }

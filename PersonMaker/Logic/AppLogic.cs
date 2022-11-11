@@ -5,7 +5,7 @@ using System.IO;
 
 namespace PersonMaker
 {
-    public class Logic
+    public class AppLogic
     {
 
         public const string filePath = "people.txt";
@@ -14,6 +14,8 @@ namespace PersonMaker
         
 
         public static List<Person> people = new List<Person>();
+
+
         //public List<Person> GetList()
         //{
         //    return people;
@@ -46,10 +48,7 @@ namespace PersonMaker
         {
             return person;
         }
-        public void AddingToList(Person person)
-        { 
-            Logic.people.Add(person);
-        }
+
 
     }
 }
