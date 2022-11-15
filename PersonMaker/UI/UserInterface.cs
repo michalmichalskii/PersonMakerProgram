@@ -7,7 +7,6 @@ namespace PersonMaker.UI
 {
     //fake pesels
     //12345678910
-    //02262602930
     //02070803628
     //90090515836
     //92071314764
@@ -16,7 +15,7 @@ namespace PersonMaker.UI
 
     class UserInterface
     {
-        readonly AppLogic appLogic = new AppLogic();
+        readonly Entries appLogic = new Entries();
         readonly SaveListToFile toFile = new SaveListToFile();
         readonly ListModifier listModifier = new ListModifier();
 
@@ -46,15 +45,13 @@ namespace PersonMaker.UI
                 switch (key)
                 {
                     case ConsoleKey.T:
-                        
-                        isCorrectKey = true;
+
                         Console.WriteLine();
                         Console.Clear();
                         return true;
-                        
+
                     case ConsoleKey.N:
-                        
-                        isCorrectKey = true;
+
                         Console.WriteLine();
 
                         return false;
@@ -63,23 +60,24 @@ namespace PersonMaker.UI
                         Console.WriteLine();
                         ErrorCall("Podano niepoprawny przycisk");
                         break;
-                        
+
                 }
-                
+
             }
             return false; // to nigdy sie nie stanie (CHYBA)
         }
         public void MainUI()
         {
-            bool ending ;
+            bool ending;
             do
             {
-                Person person = new Person() ;
+                Person person = new Person();
+                
                 do
                 {
                     Console.WriteLine("Podaj miasto:");
                     string city = Console.ReadLine();
-                    person.City = appLogic.EnteringCity(city);
+                    person.City = appLogic.EnteringCity(city, person);
 
                     if (person.City == null)
                     {
@@ -94,7 +92,7 @@ namespace PersonMaker.UI
                     Console.WriteLine("Podaj imie:");
                     string name = Console.ReadLine();
 
-                    person.Name = appLogic.EnteringName(name);
+                    person.Name = appLogic.EnteringName(name, person);
 
                     if (person.Name == null)
                     {
@@ -108,7 +106,7 @@ namespace PersonMaker.UI
                     Console.WriteLine("Podaj nazwisko:");
                     string surrname = Console.ReadLine();
 
-                    person.SurrName = appLogic.EnteringSurrname(surrname);
+                    person.SurrName = appLogic.EnteringSurrname(surrname, person);
 
                     if (person.SurrName == null)
                     {
@@ -122,24 +120,24 @@ namespace PersonMaker.UI
                     Console.WriteLine("Podaj pesel:");
                     string pesel = Console.ReadLine();
 
-                    person.Pesel = appLogic.EnteringPesel(pesel);
+                    person.Pesel = appLogic.EnteringPesel(pesel, person);
 
                     if (person.Pesel == null)
                     {
-                        ErrorCall("Wypełnij pole!");
+                        ErrorCall("Numer pesel jest niepoprwny - popraw go!");
                     }
 
                 } while (person.Pesel == null);
 
-                listModifier.DuplicatesInListChecking(person.Pesel/*, person*/);
+                listModifier.DuplicatesInListChecking(person.Pesel, listModifier.people);
 
-                listModifier.AddingToList(person);
+                listModifier.people.Add(person);
 
                 ending = ProgramEnding();
-                
+
             } while (ending == true);
-            
-            toFile.SavingToFile(AppLogic.people);
+
+            toFile.SavingToFile(listModifier.GetList());
         }
     }
 }

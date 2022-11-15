@@ -8,6 +8,7 @@ namespace PersonMaker
     
     class SaveListToFile
     {
+        public const string filePath = "people.txt";
 
         public void SavingToFile(List<Person> people)
         {

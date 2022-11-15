@@ -69,29 +69,20 @@ namespace PersonMaker
             get { return pesel; }
             set
             {
-                PeselChecker pc = new PeselChecker();
-                bool isCorrectAmount = pc.AmountOfNumbersChecking(value);
-                bool isCorrectChecksum = pc.ChecksumOfLastNumberChecking(value);
+                string tmpPesel = value;
                 
-                if (isCorrectAmount && isCorrectChecksum)
+                PeselChecker pc = new PeselChecker();
+                bool isCorrectAmount = pc.AmountOfNumbersChecking(tmpPesel);
+                if (isCorrectAmount)
                 {
-                    pesel = value;
+                    bool isCorrectChecksum = pc.ChecksumOfLastNumberChecking(tmpPesel);
+                    if (isCorrectChecksum)
+                    {
+                        pesel = value;
+                    }
                 }
 
-                
             }
         }
-        //public Person()
-        //{
-
-        //}
-        //public Person(string name_, string surrName_, string city_, string pesel_)
-        //{
-        //    name = name_;
-        //    surrName = surrName_;
-        //    city = city_;
-        //    pesel = pesel_;
-        //}
-        
     }
 }

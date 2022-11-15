@@ -6,25 +6,20 @@ namespace PersonMaker.Logic
 {
     class ListModifier
     {
-        public void AddingToList(Person person)
+        public List<Person> people = new List<Person>();
+        public List<Person> GetList()
         {
-            AppLogic.people.Add(person);
+            return people;
         }
-        
-        public void DuplicatesInListChecking(string pesel/*, Person person*/)
-        {
-            List<Person> people = AppLogic.people;
 
+        public void DuplicatesInListChecking(string pesel, List<Person> people)
+        {
             int index = people.FindIndex(person => person.Pesel.ToString() == (pesel));
 
             if (index != -1)
             {
-
-                //people[index] = person;
                 people.Remove(people[index]);
             }
-
-
         }
     }
 }
