@@ -10,7 +10,7 @@ namespace PersonMaker
     {
         public bool AmountOfNumbersChecking(string pesel)
         {
-            if (string.IsNullOrEmpty(pesel))
+            if (string.IsNullOrWhiteSpace(pesel))
                 return false;
             if (pesel.Length == 11)
                 return true;

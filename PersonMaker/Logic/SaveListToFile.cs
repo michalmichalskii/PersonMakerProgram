@@ -12,16 +12,14 @@ namespace PersonMaker
 
         public void SavingToFile(List<Person> people)
         {
-            using (StreamWriter sw = new StreamWriter("people.txt"))
+            using StreamWriter sw = new StreamWriter("people.txt");
+            foreach (Person p in people)
             {
-                foreach (Person p in people)
+                if (p.Pesel != null)
                 {
-                    if (p.Pesel != null)
-                    {
-                        sw.WriteLine($"{p.City},{p.Name},{p.SurrName},{p.Pesel}");
-                    }
-
+                    sw.WriteLine($"{p.City},{p.Name},{p.SurrName},{p.Pesel}");
                 }
+
             }
         }
     }

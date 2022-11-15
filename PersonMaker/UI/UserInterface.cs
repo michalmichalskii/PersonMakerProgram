@@ -13,7 +13,7 @@ namespace PersonMaker.UI
     //81100216357
     //80072909146
 
-    class UserInterface
+    public class UserInterface
     {
         readonly Entries appLogic = new Entries();
         readonly SaveListToFile toFile = new SaveListToFile();

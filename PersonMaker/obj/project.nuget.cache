@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sm8viGAharPHRMA25n4Jw/nChTHP0BW3r7DR4YhhWl7aAxokDve+STyZDLv/mRKRrRnoxzjXpZlYO7W6PadF9w==",
+  "dgSpecHash": "9AaG1mYTTkpJKHLtbBW9WX3K6kLTiwJrCbpF0eSa64tk0Xp/Dtwa9/M95TyOhvDk80Ck9RjK6+BUZvGHZJu5nA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Misiek2002\\source\\repos\\PersonMaker\\PersonMaker\\PersonMaker.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Misiek2002\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Misiek2002\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
-    "C:\\Users\\Misiek2002\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
-    "C:\\Users\\Misiek2002\\.nuget\\packages\\nunit3testadapter\\4.3.0\\nunit3testadapter.4.3.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -12,10 +12,3 @@ C:\Users\Misiek2002\source\repos\PersonMaker\PersonMaker\obj\Debug\netcoreapp3.1
 C:\Users\Misiek2002\source\repos\PersonMaker\PersonMaker\obj\Debug\netcoreapp3.1\PersonMaker.dll
 C:\Users\Misiek2002\source\repos\PersonMaker\PersonMaker\obj\Debug\netcoreapp3.1\PersonMaker.pdb
 C:\Users\Misiek2002\source\repos\PersonMaker\PersonMaker\obj\Debug\netcoreapp3.1\PersonMaker.genruntimeconfig.cache
-C:\Users\Misiek2002\source\repos\PersonMaker\PersonMaker\bin\Debug\netcoreapp3.1\NUnit3.TestAdapter.dll
-C:\Users\Misiek2002\source\repos\PersonMaker\PersonMaker\bin\Debug\netcoreapp3.1\NUnit3.TestAdapter.pdb
-C:\Users\Misiek2002\source\repos\PersonMaker\PersonMaker\bin\Debug\netcoreapp3.1\nunit.engine.dll
-C:\Users\Misiek2002\source\repos\PersonMaker\PersonMaker\bin\Debug\netcoreapp3.1\nunit.engine.api.dll
-C:\Users\Misiek2002\source\repos\PersonMaker\PersonMaker\bin\Debug\netcoreapp3.1\nunit.engine.core.dll
-C:\Users\Misiek2002\source\repos\PersonMaker\PersonMaker\bin\Debug\netcoreapp3.1\testcentric.engine.metadata.dll
-C:\Users\Misiek2002\source\repos\PersonMaker\PersonMaker\bin\Debug\netcoreapp3.1\nunit.framework.dll
