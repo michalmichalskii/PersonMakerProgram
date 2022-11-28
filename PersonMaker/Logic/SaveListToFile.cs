@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace PersonMaker
+namespace PersonMaker.Logic
 {
     
-    class SaveListToFile
+    public class SaveListToFile
     {
         public const string filePath = "people.txt";
 

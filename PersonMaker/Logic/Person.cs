@@ -1,11 +1,10 @@
-﻿using System;
+﻿using PersonMaker.Logic;
+using System;
 
-namespace PersonMaker
+namespace PersonMaker.Logic
 {
     public class Person
     {
-        
-
         private string city;
 
         public string City

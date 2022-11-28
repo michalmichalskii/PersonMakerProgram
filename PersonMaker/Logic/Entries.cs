@@ -1,9 +1,10 @@
-﻿using PersonMaker.UI;
+﻿using PersonMaker.Logic;
+using PersonMaker.UI;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace PersonMaker
+namespace PersonMaker.Logic
 {
     public class Entries
     {

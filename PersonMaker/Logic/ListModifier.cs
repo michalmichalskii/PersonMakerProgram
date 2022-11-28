@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PersonMaker.Logic
 {
-    class ListModifier
+    public class ListModifier
     {
         public List<Person> people = new List<Person>();
         public List<Person> GetList()

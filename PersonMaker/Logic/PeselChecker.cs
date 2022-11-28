@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PersonMaker
+namespace PersonMaker.Logic
 {
-    class PeselChecker
+    public class PeselChecker
     {
         public bool AmountOfNumbersChecking(string pesel)
         {
