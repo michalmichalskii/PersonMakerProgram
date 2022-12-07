@@ -1,4 +1,5 @@
-﻿using PersonMaker.UI;
+﻿using PersonMaker.Logic;
+using PersonMaker.UI;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,7 +9,11 @@ namespace PersonMaker
     {
         static void Main(string[] args)
         {
-            UserInterface UI = new UserInterface();
+            PersonsList personsList = new PersonsList();
+            FileSaver fileSaver = new FileSaver("people.txt");
+
+
+            UserInterface UI = new UserInterface(fileSaver,personsList);
             UI.MainUI();
 
         }

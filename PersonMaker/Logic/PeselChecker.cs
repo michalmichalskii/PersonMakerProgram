@@ -1,4 +1,5 @@
-﻿using PersonMaker.UI;
+﻿using PersonMaker.Exceptions;
+using PersonMaker.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +9,20 @@ namespace PersonMaker.Logic
 {
     public class PeselChecker
     {
-        public bool AmountOfNumbersChecking(string pesel)
+        public bool AmountOfNumbersCheck(string pesel)
         {
-            if (string.IsNullOrWhiteSpace(pesel))
-                return false;
-            if (pesel.Length == 11)
+            if (string.IsNullOrEmpty(pesel) || pesel.Length != 11) 
+            {
+                throw (new NotCorrectLengthException("\nDługść numeru pesel jest niepoprawna!\n"));
+            }
+            else
+            {
                 return true;
-            return false;
+            }
+
         }
 
-        public bool ChecksumOfLastNumberChecking(string pesel)
+        public bool ChecksumOfLastNumberCheck(string pesel)
         {
             int summary = 0;
             for (int i = 0; i < pesel.Length - 1; i++)
@@ -48,24 +53,25 @@ namespace PersonMaker.Logic
             if (!(modulo == 0))
             {
                 int cyfraKontrolna = 10 - modulo;
-                if (cyfraKontrolna == int.Parse(pesel[10].ToString()))
+
+                if (cyfraKontrolna != int.Parse(pesel[10].ToString()))
                 {
-                    return true;
+                    throw (new NotCorrectChecksumException("\nSuma kontrolna numeru pesel jest niepoprawna!\n"));
                 }
                 else
                 {
-                    return false;
+                    return true;
                 }
             }
             else
             {
-                if (modulo == int.Parse(pesel[10].ToString()))
+                if (modulo != int.Parse(pesel[10].ToString()))
                 {
-                    return true;
+                    throw (new NotCorrectChecksumException("\nSuma kontrolna numeru pesel jest niepoprawna!\n"));
                 }
                 else
                 {
-                    return false;
+                    return true;
                 }
             }
 

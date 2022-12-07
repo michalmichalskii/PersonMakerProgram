@@ -6,13 +6,17 @@ using System.Text;
 namespace PersonMaker.Logic
 {
     
-    public class SaveListToFile
+    public class FileSaver
     {
-        public const string filePath = "people.txt";
-
-        public void SavingToFile(List<Person> people)
+        private readonly string _fileName;
+        public FileSaver(string fileName)
         {
-            using StreamWriter sw = new StreamWriter("people.txt");
+            _fileName = fileName;
+        }
+
+        public void SaveToFile(List<Person> people)
+        {
+            using StreamWriter sw = new StreamWriter(_fileName);
             foreach (Person p in people)
             {
                 if (p.Pesel != null)
@@ -22,5 +26,6 @@ namespace PersonMaker.Logic
 
             }
         }
+        
     }
 }

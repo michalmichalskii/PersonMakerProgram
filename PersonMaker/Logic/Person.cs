@@ -1,4 +1,5 @@
-﻿using PersonMaker.Logic;
+﻿using PersonMaker.Exceptions;
+using PersonMaker.Logic;
 using System;
 
 namespace PersonMaker.Logic
@@ -12,11 +13,7 @@ namespace PersonMaker.Logic
             get { return city; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-
-                }
-                else
+                if (!string.IsNullOrWhiteSpace(value))
                 {
                     city = value;
                 }
@@ -31,11 +28,7 @@ namespace PersonMaker.Logic
             get { return name; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    
-                }
-                else
+                if (!string.IsNullOrWhiteSpace(value))
                 {
                     name = value;
                 }
@@ -53,10 +46,6 @@ namespace PersonMaker.Logic
                 {
                     surrName = value;
                 }
-                else
-                {
-                    
-                }
             }
         }
 
@@ -69,18 +58,33 @@ namespace PersonMaker.Logic
             set
             {
                 string tmpPesel = value;
-                
+
                 PeselChecker pc = new PeselChecker();
-                bool isCorrectAmount = pc.AmountOfNumbersChecking(tmpPesel);
-                if (isCorrectAmount)
+
+                bool correctPesel = false;
+
+                while (!correctPesel)
                 {
-                    bool isCorrectChecksum = pc.ChecksumOfLastNumberChecking(tmpPesel);
-                    if (isCorrectChecksum)
+                    try
                     {
-                        pesel = value;
+                        correctPesel = pc.AmountOfNumbersCheck(tmpPesel);
+                        correctPesel = pc.ChecksumOfLastNumberCheck(tmpPesel);
+
                     }
+                    catch (NotCorrectLengthException lengthEx)
+                    {
+                        Console.WriteLine(lengthEx.Message);
+                        break;
+                    }
+                    catch (NotCorrectChecksumException sumEx)
+                    {
+                        Console.WriteLine(sumEx.Message);
+                        break;
+                    }
+                    pesel = value;
                 }
 
+                
             }
         }
     }
