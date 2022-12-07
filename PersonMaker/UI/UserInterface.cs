@@ -1,4 +1,5 @@
-﻿using PersonMaker.Logic;
+﻿using PersonMaker.Exceptions;
+using PersonMaker.Logic;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,6 +19,11 @@ namespace PersonMaker.UI
         private readonly FileSaver _fileSaver;
         private readonly PersonsList _personsList;
 
+        public UserInterface()
+        {
+
+        }
+
         public UserInterface(FileSaver fileSaver, PersonsList personsList)
         {
             _fileSaver = fileSaver;
@@ -30,6 +36,17 @@ namespace PersonMaker.UI
             Console.WriteLine(error);
             Console.ResetColor();
         }
+
+        public void NotCorrectLengthCall()
+        {
+            throw (new NotCorrectChecksumException("\nDługść numeru pesel jest niepoprawna!\n"));
+        }
+
+        public void NotCorrectCheckSumCall()
+        {
+            throw (new NotCorrectChecksumException("\nSuma kontrolna numeru pesel jest niepoprawna!\n"));
+        }
+
         public void ConfirmCall(string call)
         {
             Console.ForegroundColor = ConsoleColor.Green;

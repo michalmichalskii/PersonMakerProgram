@@ -9,11 +9,15 @@ namespace PersonMaker.Logic
 {
     public class PeselChecker
     {
+        readonly UserInterface ui = new UserInterface();
+
         public bool AmountOfNumbersCheck(string pesel)
         {
             if (string.IsNullOrEmpty(pesel) || pesel.Length != 11) 
             {
-                throw (new NotCorrectLengthException("\nDługść numeru pesel jest niepoprawna!\n"));
+                ui.NotCorrectLengthCall();
+                return false;
+                //throw (new NotCorrectLengthException("\nDługść numeru pesel jest niepoprawna!\n"));
             }
             else
             {
@@ -56,7 +60,9 @@ namespace PersonMaker.Logic
 
                 if (cyfraKontrolna != int.Parse(pesel[10].ToString()))
                 {
-                    throw (new NotCorrectChecksumException("\nSuma kontrolna numeru pesel jest niepoprawna!\n"));
+                    ui.NotCorrectCheckSumCall();
+                    return false;
+                    //throw (new NotCorrectChecksumException("Suma kontrolna numeru pesel jest niepoprawna!"));
                 }
                 else
                 {
@@ -67,7 +73,9 @@ namespace PersonMaker.Logic
             {
                 if (modulo != int.Parse(pesel[10].ToString()))
                 {
-                    throw (new NotCorrectChecksumException("\nSuma kontrolna numeru pesel jest niepoprawna!\n"));
+                    ui.NotCorrectCheckSumCall();
+                    return false;
+                    //throw (new NotCorrectChecksumException("\nSuma kontrolna numeru pesel jest niepoprawna!\n"));
                 }
                 else
                 {
